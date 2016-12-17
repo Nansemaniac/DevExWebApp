@@ -19,7 +19,7 @@ VERSION SUPPORT
         
 CREDENTIALS
       
-      Hostname : localhost
-      Username : root
-      Password : root
-      Database : db
+        Hostname : localhost
+        Username : root
+        Password : root
+        Database : db
