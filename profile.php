@@ -1,9 +1,14 @@
 <!--
- * File : search.php (Search)
+ * File : profile.php
  * Developer : Agney Patel
  * Website : www.agney.vishwasetu.com
  * Copyright © Agney Patel 2016
  -->
+
+<?php
+include('session.php');
+?>
+
 <!DOCTYPE html>
 
 <head>
@@ -11,16 +16,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-
-    <script language="javascript" type="text/javascript">
-        function validateForm() {
-            var email = document.forms["Form"]["email"].value;
-            if (email == "") {
-                alert("Email Required");
-                return false;
-            }
-        }
-    </script>
 </head>
 
 <body>
@@ -47,27 +42,7 @@
             <div class="row">
                 <div class="col s12 center">
                     <h3><i class="mdi-content-send brown-text"></i></h3>
-                    <h4>User Search</h4>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="section">
-            <div class="row">
-                <div class="row">
-                    <form class="col s12" name="Form" action="" onsubmit="return validateForm()" method="POST">
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix">email</i>
-                                <input name="email" type="email">
-                                <label for="email">Email</label>
-                            </div>
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                                <i class="material-icons right">send</i>
-                            </button>
-                        </div>
-                    </form>
+                    <h4>Welcome!</h4>
                 </div>
             </div>
         </div>
@@ -81,12 +56,12 @@
                             <div class="col s12 m8">
                                 <div class="card blue-grey darken-1">
                                     <div class="card-content white-text">
-                                        <span class="card-title">User Details</span>
+                                        <span class="card-title">User Details | <a href="logout.php">Logout</a></span>
                                         <br>
                                         <?php
                                           $link = mysqli_connect("localhost", "root", "root", "db");
                                           if (!empty($_REQUEST['email'])) {
-                                              $email = mysqli_real_escape_string($link, $_REQUEST['email']);
+                                              $email     = mysqli_real_escape_string($link, $_REQUEST['email']);
                                               $sql       = "SELECT * FROM userdata WHERE email LIKE '%" . $email . "%'";
                                               $r_query   = mysqli_query($link, $sql);
                                               while ($row = mysqli_fetch_array($r_query)) {
@@ -98,6 +73,7 @@
                                               }
                                           }
                                           mysqli_close($link);
+                                        echo "This is your dashboard";
                                         ?>
                                     </div>
                                 </div>

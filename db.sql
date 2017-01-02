@@ -6,7 +6,7 @@
 -- Server version: 5.5.42
 -- PHP Version: 7.0.8
 
--- File : dataphilabs.sql (Database)
+-- File : db.sql (Database)
 -- Developer : Agney Patel
 -- Website : www.agney.vishwasetu.com
 -- Copyright © Agney Patel 2016
@@ -33,6 +33,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `userdata` (
   `firstname` varchar(20) NOT NULL,
   `lastname` varchar(20) NOT NULL,
+  `email` varchar(25) NOT NULL,
+  `password` varchar(15) NOT NULL,
   `age` varchar(2) NOT NULL,
   `phone` varchar(10) NOT NULL,
   `gender` varchar(6) NOT NULL,
@@ -44,11 +46,11 @@ CREATE TABLE `userdata` (
 -- Dumping data for table `userdata`
 --
 
-INSERT INTO `userdata` (`firstname`, `lastname`, `age`, `phone`, `gender`, `dob`, `comment`) VALUES
-('AMBER', 'MORTON', '21', '3479942274', 'female', '1995-01-02', 'Nice'),
-('KELLY', 'DUNLAP', '21', '2512029437', 'female', '1995-01-05', 'Good'),
-('KRISTINA', 'BLACKWELL', '21', '6514936953', 'female', '1995-01-03', 'nice'),
-('MIKE', 'JOSEPH', '21', '7694780831', 'male', '1995-01-04', 'Nice');
+INSERT INTO `userdata` (`firstname`, `lastname`, `email`, `password`, `age`, `phone`, `gender`, `dob`, `comment`) VALUES
+('AMBER', 'MORTON', 'amber@email.com', 'amber123', '21', '3479942274', 'female', '1995-01-02', 'Nice'),
+('KELLY', 'DUNLAP', 'kelly@email.com', 'kelly123', '21', '2512029437', 'female', '1995-01-05', 'Good'),
+('KRISTINA', 'BLACKWELL', 'kristina@email.com', 'kristina123', '21', '6514936953', 'female', '1995-01-03', 'nice'),
+('MIKE', 'JOSEPH', 'mike@email.com', 'mike123', '21', '7694780831', 'male', '1995-01-04', 'Nice');
 
 --
 -- Indexes for dumped tables

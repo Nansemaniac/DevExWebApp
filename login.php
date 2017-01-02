@@ -1,9 +1,19 @@
 <!--
- * File : search.php (Search)
+ * File : login.php (Login)
  * Developer : Agney Patel
  * Website : www.agney.vishwasetu.com
  * Copyright © Agney Patel 2016
  -->
+
+<?php
+
+include('loginchk.php');
+if(isset($_SESSION['login_user'])){
+// header("location: search.php");
+}
+
+?>
+
 <!DOCTYPE html>
 
 <head>
@@ -15,8 +25,14 @@
     <script language="javascript" type="text/javascript">
         function validateForm() {
             var email = document.forms["Form"]["email"].value;
+            var password = document.forms["Form"]["password"].value;
             if (email == "") {
                 alert("Email Required");
+                return false;
+            }
+            else
+            if(password == ""){
+                alert("Password Required");
                 return false;
             }
         }
@@ -47,7 +63,7 @@
             <div class="row">
                 <div class="col s12 center">
                     <h3><i class="mdi-content-send brown-text"></i></h3>
-                    <h4>User Search</h4>
+                    <h4>User Login</h4>
                 </div>
             </div>
         </div>
@@ -58,50 +74,20 @@
                 <div class="row">
                     <form class="col s12" name="Form" action="" onsubmit="return validateForm()" method="POST">
                         <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field col s4">
                                 <i class="material-icons prefix">email</i>
                                 <input name="email" type="email">
                                 <label for="email">Email</label>
                             </div>
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                            <div class="input-field col s4">
+                                <i class="material-icons prefix">lock</i>
+                                <input name="password" type="password">
+                                <label for="password">Password</label>
+                            </div>
+                            <button class="btn waves-effect waves-light" type="submit" name="submit">Login
                                 <i class="material-icons right">send</i>
                             </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="section">
-            <div class="row">
-                <div class="row">
-                    <form class="col s12">
-                        <div class="row">
-                            <div class="col s12 m8">
-                                <div class="card blue-grey darken-1">
-                                    <div class="card-content white-text">
-                                        <span class="card-title">User Details</span>
-                                        <br>
-                                        <?php
-                                          $link = mysqli_connect("localhost", "root", "root", "db");
-                                          if (!empty($_REQUEST['email'])) {
-                                              $email = mysqli_real_escape_string($link, $_REQUEST['email']);
-                                              $sql       = "SELECT * FROM userdata WHERE email LIKE '%" . $email . "%'";
-                                              $r_query   = mysqli_query($link, $sql);
-                                              while ($row = mysqli_fetch_array($r_query)) {
-                                                  echo 'First Name: ' . $row['firstname'];
-                                                  echo '<br /> Last Name: ' . $row['lastname'];
-                                                  echo '<br /> Age: ' . $row['age'];
-                                                  echo '<br /> Phone: ' . $row['phone'];
-                                                  echo '<br /> Gender: ' . $row['gender'];
-                                              }
-                                          }
-                                          mysqli_close($link);
-                                        ?>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     </form>
                 </div>
