@@ -1,21 +1,22 @@
 # WebApp
-This simple web app collects user data, stores in the database and can retrieve the data according to the user input.
+This simple web app collects user data, stores in the database and can retrieve the data according to the user input along with login and logout options.
 
 FEATURES
 
-        Form with JS validation
+        Sign Up form with JS validation
+        Login and Logout options
         Dynamic Search
         Responsive Design
         
 TECHNOLOGIES
 
         Front end : HTML, CSS, JavaScript
-        Back end  : PHP
+        Back end  : PHP, MySQL
 
 VERSION SUPPORT
 
-        PHP : 7.0.8 +
-        MySQL : 5.5.42 +
+        PHP : 7.0.8 or greater
+        MySQL : 5.5.42 or greater
         
 CREDENTIALS
       
