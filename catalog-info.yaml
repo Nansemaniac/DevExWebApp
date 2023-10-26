@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: DevExWebApp
+  annotations:
+    github.com/project-slug: Nansemaniac/DevExWebApp
+spec:
+  type: other
+  lifecycle: unknown
+  owner: guests
